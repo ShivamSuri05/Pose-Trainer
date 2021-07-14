@@ -16,8 +16,17 @@
 <link rel="stylesheet" href="css/ionicons.min.css">
 <!-- Resource style -->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
-<style>
+<!-- Model Import -->
+<!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.2/css/bulma.min.css"> -->
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.1/control_utils.css" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" type="text/css" href="demo.css" crossorigin="anonymous"> -->
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.1/camera_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/control_utils@0.1/control_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/drawing_utils@0.2/drawing_utils.js" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.2/pose.js" crossorigin="anonymous"></script>
 
+<style>
 
 .user{
 width:500px;
@@ -41,7 +50,7 @@ width:250px;
 height:60px;
 margin:auto;
 background:#04AA6D;
-font-color:white;
+color:white;
 }
 
 
@@ -125,12 +134,67 @@ font-color:white;
 </div>
 
 
-	<div class="matching"><p align="left" style="font-size:25px; padding:6px 8px">Accuracy :</p></div>
+	<div class="matching"><span style="font-size:25px; text-align:left; padding:6px 8px">Accuracy :</span>
+  <span id="C-score"></span>
+  </div>
+  <div class="columns">
+      
+    <!-- WEBCAM INPUT -->
+    <div class="column trainer">
+      <article class="panel is-info">
+        <p style="color:black">
+          Webcam Input
+        </p>
+        <div class="panel-block ">
+          <video id="myvideo" class="input_video5"></video>
+        </div>
+      </article>
+      <button onclick="openFullscreen();">Open Video in Fullscreen Mode</button>
+    </div>
 
-   
-	<div class="trainer"></div>
-	<div class="user"></div>
+    <!-- MEDIAPIPE OUTPUT -->
+    <div class="column user">
+      <article class="panel is-info">
+        <p style="color:black">
+          Mediapipe Pose Detection
+        </p>
+        <div  class="panel-block">
+          <canvas id="myvideo1" class="output5" width="480px" height="480px"></canvas>
+        </div>
+      </article>
+      <button onclick="openFullscreen1();">Open Video in Fullscreen Mode</button>
+    </div>
+  </div>
 
+  <div class="loading">
+    <div class="spinner"></div>
+  </div>
+  <div style="visibility: hidden;" class="control5">
+  </div>
+
+  <script type="text/javascript" src="js/pose.js"></script>
+  <script>
+    var elem = document.getElementById("myvideo");
+    function openFullscreen() {
+      if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+      } else if (elem.webkitRequestFullscreen) { /* Safari */
+        elem.webkitRequestFullscreen();
+      } else if (elem.msRequestFullscreen) { /* IE11 */
+        elem.msRequestFullscreen();
+      }
+    }
+    var elem1 = document.getElementById("myvideo1");
+    function openFullscreen1() {
+      if (elem1.requestFullscreen) {
+        elem1.requestFullscreen();
+      } else if (elem1.webkitRequestFullscreen) { /* Safari */
+        elem1.webkitRequestFullscreen();
+      } else if (elem1.msRequestFullscreen) { /* IE11 */
+        elem1.msRequestFullscreen();
+      }
+    }
+    </script>
 
 <!--NEWWWWWWWWWWWWWW-->      
 
