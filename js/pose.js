@@ -4,7 +4,32 @@ const controlsElement5 = document.getElementsByClassName('control5')[0];
 const canvasCtx5 = out5.getContext('2d');
 let confidenceScore;
 const fpsControl = new FPS();
-
+let datta = {
+  0 : {x:0,y:0,z:0,visibility:0},1 : {x:0,y:0,z:0,visibility:0},2 : {x:0,y:0,z:0,visibility:0},3 : {x:0,y:0,z:0,visibility:0},
+  4 : {x:0,y:0,z:0,visibility:0},5 : {x:0,y:0,z:0,visibility:0},6 : {x:0,y:0,z:0,visibility:0},7 : {x:0,y:0,z:0,visibility:0},
+  8 : {x:0,y:0,z:0,visibility:0},9 : {x:0,y:0,z:0,visibility:0},10 : {x:0,y:0,z:0,visibility:0},11 : {x:0,y:0,z:0,visibility:0},
+  12 : {x:0,y:0,z:0,visibility:0},13 : {x:0,y:0,z:0,visibility:0},14 : {x:0,y:0,z:0,visibility:0},15 : {x:0,y:0,z:0,visibility:0},
+  16 : {x:0,y:0,z:0,visibility:0},17 : {x:0,y:0,z:0,visibility:0},18 : {x:0,y:0,z:0,visibility:0},19 : {x:0,y:0,z:0,visibility:0},
+  20 : {x:0,y:0,z:0,visibility:0},21 : {x:0,y:0,z:0,visibility:0},22 : {x:0,y:0,z:0,visibility:0},23 : {x:0,y:0,z:0,visibility:0},
+  24 : {x:0,y:0,z:0,visibility:0},25 : {x:0,y:0,z:0,visibility:0},26 : {x:0,y:0,z:0,visibility:0},27 : {x:0,y:0,z:0,visibility:0},
+  28 : {x:0,y:0,z:0,visibility:0},29 : {x:0,y:0,z:0,visibility:0},30 : {x:0,y:0,z:0,visibility:0},31 : {x:0,y:0,z:0,visibility:0},
+  32 : {x:0,y:0,z:0,visibility:0}
+};
+let vector = [];
+let start = -1;
+function startModel()
+{
+  console.log("Started");
+  start = 1;
+  ll();
+  return;
+}
+function stopModel()
+{
+  console.log("Stopped");
+  start = 0;
+  return;
+}
 const spinner = document.querySelector('.loading');
 spinner.ontransitionend = () => {
   spinner.style.display = 'none';
@@ -16,8 +41,16 @@ function zColor(data) {
 }
 
 function onResultsPose(results) {
-  document.body.classList.add('loaded');
-  fpsControl.tick();
+  if(start==0)
+  {
+    console.log(vector);
+    start = -1;
+    return;
+  }
+  else if(start==1)
+  {
+    document.body.classList.add('loaded');
+    fpsControl.tick();
 
   canvasCtx5.save();
   canvasCtx5.clearRect(0, 0, out5.width, out5.height);
@@ -29,10 +62,10 @@ function onResultsPose(results) {
   }
   //console.log("C-Score",confidenceScore*100/33);
   document.getElementById("C-score").innerHTML = (confidenceScore*100/33).toFixed(3);
-  canvasCtx5.drawImage(
-      results.image, 0, 0, out5.width, out5.height);
-  drawConnectors(
-      canvasCtx5, results.poseLandmarks, POSE_CONNECTIONS, {
+  //console.log(results.poseLandmarks[0]);
+  vector.push(results.poseLandmarks);
+  canvasCtx5.drawImage(results.image, 0, 0, out5.width, out5.height);
+  drawConnectors(canvasCtx5, results.poseLandmarks, POSE_CONNECTIONS, {
         color: (data) => {
           const x0 = out5.width * data.from.x;
           const y0 = out5.height * data.from.y;
@@ -66,12 +99,17 @@ function onResultsPose(results) {
           .map(index => results.poseLandmarks[index]),
       {color: zColor, fillColor: '#AAAAAA'});
   canvasCtx5.restore();
+  }
 }
 
-const pose = new Pose({locateFile: (file) => {
+  const pose = new Pose({locateFile: (file) => {
   return `https://cdn.jsdelivr.net/npm/@mediapipe/pose@0.2/${file}`;
 }});
-pose.onResults(onResultsPose);
+function ll()
+{
+  console.log("reached");
+  pose.onResults(onResultsPose);
+}
 
 const camera = new Camera(video5, {
   onFrame: async () => {

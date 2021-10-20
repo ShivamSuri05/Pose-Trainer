@@ -115,3 +115,14 @@ $('.counter').counterUp({
     });
 
 });
+
+function showDiv()
+{
+  document.getElementById('signUp').style.display = "block";
+  document.getElementById('logIn').style.display = "none";
+}
+function hideDiv()
+{
+  document.getElementById('signUp').style.display = "none";
+  document.getElementById('logIn').style.display = "block";
+}

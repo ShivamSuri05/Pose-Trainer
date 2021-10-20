@@ -137,6 +137,8 @@ color:white;
 	<div class="matching"><span style="font-size:25px; text-align:left; padding:6px 8px">Accuracy :</span>
   <span id="C-score"></span>
   </div>
+  <button onclick="startModel();">Start</button>
+  <button onclick="stopModel();">Stop</button>
   <div class="columns">
       
     <!-- WEBCAM INPUT -->
@@ -171,7 +173,11 @@ color:white;
   </div>
   <div style="visibility: hidden;" class="control5">
   </div>
+  
+  <script type="module" src="js/firebase.js"></script>
 
+  <button id ="isnbtn">insert Data</button>
+  <button id ="show">Show Data</button>
   <script type="text/javascript" src="js/pose.js"></script>
   <script>
     var elem = document.getElementById("myvideo");
