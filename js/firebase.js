@@ -54,5 +54,29 @@ function showwData(){
   })
 }
 
-isnBtn.addEventListener('click',insertData);
-showData.addEventListener('click',showwData);
+
+  var uid = localStorage.getItem('id');
+  if(uid){const dbref = ref(db);
+
+get(child(dbref,"Users/"+uid)).then((snapshot)=>{
+  if(snapshot.exists())
+  {
+      //alert("Name "+snapshot.val().NameofStd+" roll no "+snapshot.val().RollNo);
+      //alert("test"+snapshot.val().name);
+      document.getElementById('getname').innerHTML = snapshot.val().name;
+      //alert("test"+snapshot.val().pose[0][0].x);
+  }
+  else
+  {
+    alert("No Data Found");
+  }
+});
+}
+
+
+//isnBtn.addEventListener('click',insertData);
+//showData.addEventListener('click',showwData);
+
+
+
+

@@ -1,5 +1,6 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword ,signInWithEmailAndPassword} from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
+
 const firebaseConfig = {
   apiKey: "AIzaSyB06vxIXkxwPG_5ib43lG3Dp0WYIANMMd8",
   authDomain: "poseapp-9f4ee.firebaseapp.com",
@@ -12,6 +13,9 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+import {getDatabase,ref, get, set, child, update, remove} from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
+
+const db = getDatabase();
 
 document.getElementById('signUP').addEventListener('click', function(){
   var fname = document.getElementById('fullname');
@@ -23,7 +27,21 @@ document.getElementById('signUP').addEventListener('click', function(){
     .then((userCredential) => {
     // Signed in 
       const user = userCredential.user;
-      alert("user created "+fname.value+pno.value+user.email);
+      alert("user created "+fname.value+pno.value+user.email+user.uid);
+      set(ref(db,"Users/"+user.uid),{
+        name: fname.value,
+        contact: pno.value,
+        email: user.email,
+        poses: []
+    })
+    .then(()=>{
+      alert("data stored successfully");
+      localStorage.setItem("id",user.uid);
+      window.location.href = 'test.html';
+    })
+    .catch((error) => {
+      alert("error occured"+ error);
+    });
     // ...
     })
     .catch((error) => {
@@ -32,7 +50,35 @@ document.getElementById('signUP').addEventListener('click', function(){
       alert(errorMessage);
     // ..
   });
+
+
 })
+
+
+document.getElementById('logIN').addEventListener('click', function(){
+    var email = document.getElementById('loginemail');
+    var pass = document.getElementById('loginpass');
+
+    signInWithEmailAndPassword(auth, email.value, pass.value)
+    .then((userCredential) => {
+    // Signed in 
+      const user = userCredential.user;
+      alert("user log in "+user.uid);
+      localStorage.setItem("id",user.uid);
+      window.location.href = 'test.html';
+    // ...
+    })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage);
+    // ..
+  });
+
+
+})
+
+
 
 // Initialize Firebase
 // const app = initializeApp(firebaseConfig);

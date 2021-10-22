@@ -52,11 +52,11 @@
         </div>
 		<div id="logIn">
 			<h3>Login</h3>
-			<form>
-				<input type="email">Username</input><br>
-				<input type="password">Password</input><br>
-				<button>Login</button>
-			</form>
+			<div >
+				<input type="email" id="loginemail">Username</input><br>
+				<input type="password" id="loginpass">Password</input><br>
+				<input type="submit" id="logIN" value="Login">Login</input>
+			</div>
 			<button onclick="showDiv();">New User? Sign Up</button>
 		</div>
 		<div id="signUp">
@@ -67,7 +67,7 @@
 				<input type="email" id="mail">Email Id</input><br>
 				<input type="password" id="pass1">Password</input><br>
 				<input type="password" id="pass2">Confirm Password</input><br>
-				<input type="submit" id="signUP">Create Account</input>
+				<input type="submit" id="signUP" value="Create">Create Account</input>
 			</div>
 			<button onclick="hideDiv();">Registered User? Log In</button>
 		</div>
