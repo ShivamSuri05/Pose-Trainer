@@ -137,12 +137,12 @@ color:white;
 	<div class="matching"><span style="font-size:25px; text-align:left; padding:6px 8px">Accuracy :</span>
   <span id="C-score"></span>
   </div>
-  <button onclick="startModel();">Start</button>
-  <button onclick="stopModel();">Stop</button>
+  <button onclick="startModel();" id="startM">Start</button>
+  <button onclick="stopModel();" id="stopM">Stop</button>
   <div class="columns">
       
     <!-- WEBCAM INPUT -->
-    <div class="column trainer">
+    <div class="column trainer" style="display: none;">
       <article class="panel is-info">
         <p style="color:black">
           Webcam Input
@@ -165,6 +165,18 @@ color:white;
         </div>
       </article>
       <button onclick="openFullscreen1();">Open Video in Fullscreen Mode</button>
+    </div>
+    <!-- stick -->
+    <div class="column user">
+      <article class="panel is-info">
+        <p style="color:black">
+          Stick figure
+        </p>
+        <div  class="panel-block">
+          <canvas id="myvideo2" class="output6" width="480px" height="480px"></canvas>
+        </div>
+      </article>
+      <button onclick="openFullscreen1();">Open Video in Fullscreen Mode1</button>
     </div>
   </div>
 
