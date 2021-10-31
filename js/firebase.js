@@ -74,7 +74,7 @@ get(child(dbref,"Users/"+uid)).then((snapshot)=>{
 }
 
 
-//isnBtn.addEventListener('click',insertData);
+isnBtn.addEventListener('click',insertData);
 //showData.addEventListener('click',showwData);
 
 

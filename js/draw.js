@@ -16,6 +16,8 @@ const firebaseConfig = {
 
 const db = getDatabase();
 let v = [];
+let sizeofv=0;
+let totalacc=0;
 
 function showwData(){
     const dbref = ref(db);
@@ -129,9 +131,8 @@ function onResultsPose(results) {
           .map(index => results.poseLandmarks[index]),
       {color: zColor, fillColor: '#AAAAAA'});
 
-      if(entry<41){
-        //console.log(v[entry]);
-      }
+      sizeofv++;
+      compare(results.poseLandmarks,v[entry]);
       drawConnectors(canvasCtx6, v[entry], POSE_CONNECTIONS, {
         color: (data) => {
           const x0 = out6.width * data.from.x;
@@ -200,6 +201,35 @@ startm.addEventListener('click',startModel);
 
 var stopm = document.getElementById("stopM");
 stopm.addEventListener('click',stopModel);
+
+function compare(a,b){
+  if(b==null)
+  {
+    console.log("finish");
+    let msg = "Your avg acc is "+ (totalacc/sizeofv).toFixed(3) ;
+    console.log(msg);
+    stopModel();
+    document.getElementById("C-score").innerHTML = msg;
+  }
+  let sum = 0;
+  let threshold = 0.1;
+  for(let i=0;i<33;i++){
+    let dist = calDist(a[i].x,a[i].y,b[i].x,b[i].y);
+    if(dist <= threshold && dist >= -threshold ){
+      sum++;
+    }
+  }
+  let accuracy = sum*100 / 33;
+  //console.log(accuracy);
+  totalacc += accuracy;
+  document.getElementById("C-score").innerHTML = (accuracy).toFixed(3);
+}
+
+function calDist(x1,y1,x2,y2){
+  let ans = (x2-x1)*(x2-x1)+(y2-y1)*(y2-y1);
+  let result = Math.sqrt(ans);
+  return result;
+}
 
 
 new ControlPanel(controlsElement5, {
