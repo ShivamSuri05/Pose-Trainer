@@ -28,6 +28,7 @@ function stopModel()
 {
   console.log("Stopped");
   start = 0;
+  document.getElementById('recordb').style.display = "inline";
   return;
 }
 const spinner = document.querySelector('.loading');

@@ -24,18 +24,7 @@ const db = getDatabase();
 
 var isnBtn = document.getElementById("isnbtn");
 var showData = document.getElementById("show");
-function insertData(){
-  set(ref(db,"keyPoints/"+1),{
-        name: "Shivam",
-        pose: [{name:"dance",keypoints:vector}]
-  })
-  .then(()=>{
-    alert("data stored successfully");
-  })
-  .catch((error) => {
-    alert("error occured"+ error);
-  });
-}
+
 
 function showwData(){
   const dbref = ref(db);
@@ -56,6 +45,8 @@ function showwData(){
 
 
   var uid = localStorage.getItem('id');
+  var naam = null;
+  var data = [];
   if(uid){const dbref = ref(db);
 
 get(child(dbref,"Users/"+uid)).then((snapshot)=>{
@@ -64,6 +55,8 @@ get(child(dbref,"Users/"+uid)).then((snapshot)=>{
       //alert("Name "+snapshot.val().NameofStd+" roll no "+snapshot.val().RollNo);
       //alert("test"+snapshot.val().name);
       document.getElementById('getname').innerHTML = snapshot.val().name;
+      naam = snapshot.val().name;
+      localStorage.setItem("name",snapshot.val().name);
       //alert("test"+snapshot.val().pose[0][0].x);
   }
   else
@@ -73,9 +66,78 @@ get(child(dbref,"Users/"+uid)).then((snapshot)=>{
 });
 }
 
+function insertData(){
+  if(naam==null || uid==null){
+    alert("Cannot fulfill request");
+  }
+  else{
+    var act = document.getElementById('actName').value;
+    alert(act);
+    //getData();
+    const dbref = ref(db);
+
+  get(child(dbref,"keyPoints/"+uid)).then((snapshot)=>{
+    if(snapshot.exists())
+    {
+      if(snapshot.val().pose)
+      {
+        for(let i=0;i<snapshot.val().pose.length;i++)
+        {
+          data.push(snapshot.val().pose[i]);
+        }
+        
+      }
+        //alert("done");
+    }
+    else
+    {
+      alert("No Data Found");
+    }
+  })
+  .then(()=>{
+    //alert("came back");
+    data.push({name:act,keypoints:vector});
+    set(ref(db,"keyPoints/"+uid),{
+      name: naam,
+      pose: data
+    })
+    .then(()=>{
+      alert("data stored successfully");
+      window.location.href = "test.html";
+    })
+    .catch((error) => {
+      alert("error occured"+ error);
+    });
+  });
+  // set(ref(db,"keyPoints/"+uid),{
+  //   name: naam,
+  //   pose: [{name:act,keypoints:vector}]
+  // })
+  // .then(()=>{
+  //   alert("data stored successfully");
+  //   window.location.href = "test.html";
+  // })
+  // .catch((error) => {
+  //   alert("error occured"+ error);
+  // });
+
+    
+    
+  }
+}
+
 
 isnBtn.addEventListener('click',insertData);
 //showData.addEventListener('click',showwData);
+
+var open = document.getElementById('openform');
+open.addEventListener('click',hideMain);
+
+function hideMain(){
+  document.getElementById('mainArea').style.display = "none";
+  document.getElementById('form').style.display = "block";
+}
+
 
 
 
