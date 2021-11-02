@@ -67,7 +67,10 @@ get(child(dbref,"Users/"+uid)).then((snapshot)=>{
 }
 
 function insertData(){
-  if(naam==null || uid==null){
+
+  var e = document.getElementById('framework');
+
+  if(naam==null || uid==null || e.value == -1){
     alert("Cannot fulfill request");
   }
   else{
@@ -96,7 +99,7 @@ function insertData(){
   })
   .then(()=>{
     //alert("came back");
-    data.push({name:act,keypoints:vector});
+    data.push({type: e.options[e.selectedIndex].text,name:act,keypoints:vector});
     set(ref(db,"keyPoints/"+uid),{
       name: naam,
       pose: data
@@ -137,6 +140,13 @@ function hideMain(){
   document.getElementById('mainArea').style.display = "none";
   document.getElementById('form').style.display = "block";
 }
+
+// var test = document.getElementById('check');
+
+// test.addEventListener('click',testData);
+// function testData(){
+//   alert();
+// }
 
 
 
