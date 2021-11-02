@@ -19,15 +19,42 @@ let v = [];
 let sizeofv=0;
 let totalacc=0;
 
+
+
 function showwData(){
     const dbref = ref(db);
+    var myParam = location.search.split('id=')[1];
+let uid = "";
+let act = "";
+for(let i=0;i<myParam.length;i++){
+  if(myParam[i]=='&'){
+    while(myParam[i]!='$'&& myParam[i+1]!='#' && myParam[i+2]!='@'){
+      act += myParam[i];
+      i++;
+    }
+  }
+  else{
+    uid += myParam[i];
+  }
+}
 
-  get(child(dbref,"keyPoints/"+1)).then((snapshot)=>{
+console.log(uid);
+console.log(act.slice(5));
+
+  get(child(dbref,"keyPoints/"+uid))
+  .then((snapshot)=>{
     if(snapshot.exists())
     {
         //alert("Name "+snapshot.val().NameofStd+" roll no "+snapshot.val().RollNo);
-        v = snapshot.val().pose[0].keypoints;
-        alert('keypoints received');
+        snapshot.val().pose.forEach(childSnapshot => {
+          //console.log(childSnapshot);
+          if(childSnapshot.name.toLowerCase()==act.slice(5)){
+            v = childSnapshot.keypoints;
+            alert('keypoints received');
+            console.log(v);
+          }
+        });
+        //v = snapshot.val().pose[0].keypoints;
         //helper(v);
         //alert("test "+snapshot.val().pose[0].name);
         //alert("test"+snapshot.val().pose[0][0].x);
@@ -36,6 +63,10 @@ function showwData(){
     {
       alert("No Data Found");
     }
+  })
+  .catch((e)=>{
+    //alert(e+'Firebase Error, Press OK to reload');
+    location.reload();
   })
 }
 
@@ -193,8 +224,8 @@ const camera = new Camera(video5, {
 camera.start();
 
 
-var showData = document.getElementById("show");
-showData.addEventListener('click',showwData);
+// var showData = document.getElementById("show");
+// showData.addEventListener('click',showwData);
 
 var startm = document.getElementById("startM");
 startm.addEventListener('click',startModel);
@@ -265,8 +296,7 @@ new ControlPanel(controlsElement5, {
 
 
 
-
-
+window.onload = showwData();
 
 
 
