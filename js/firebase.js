@@ -54,7 +54,7 @@ get(child(dbref,"Users/"+uid)).then((snapshot)=>{
   {
       //alert("Name "+snapshot.val().NameofStd+" roll no "+snapshot.val().RollNo);
       //alert("test"+snapshot.val().name);
-      document.getElementById('getname').innerHTML = snapshot.val().name;
+      document.getElementById('getname').innerHTML = "Hello "+snapshot.val().name;
       naam = snapshot.val().name;
       localStorage.setItem("name",snapshot.val().name);
       //alert("test"+snapshot.val().pose[0][0].x);
@@ -92,10 +92,10 @@ function insertData(){
       }
         //alert("done");
     }
-    else
-    {
-      alert("No Data Found");
-    }
+    // else
+    // {
+    //   alert("No Data Found");
+    // }
   })
   .then(()=>{
     //alert("came back");
@@ -130,6 +130,64 @@ function insertData(){
 }
 
 
+
+var tbody = document.getElementById('tbody1');
+function addItemToTable(name,type){
+  let trow = document.createElement("tr");
+  let td1 = document.createElement("td");
+  let td2 = document.createElement("td");
+  let td3 = document.createElement("button");
+  let td4 = document.createElement("button");
+  let td5 = document.createElement("td");
+  let td6 = document.createElement("td");
+
+  td1.innerHTML = name;
+  td2.innerHTML = type;
+  td3.innerHTML = "Update";
+  td4.innerHTML = "Delete";
+  // let s = "window.location='delete.html?type="+type+"&name="+name+"'";
+  let str = "window.location='delete.html?type="+type+"&name="+name+"'";
+  let str1 = "window.location='update.html?type="+type+"&name="+name+"'";
+  td5.innerHTML = '<button onclick="'+str1+'">Update</button>';
+  td6.innerHTML = '<button onclick="'+str+'">Delete</button>';
+
+  trow.appendChild(td1);
+  trow.appendChild(td2);
+  trow.appendChild(td5);
+  trow.appendChild(td6);
+  trow.setAttribute('class',"clickable text-center");
+  tbody.appendChild(trow);
+}
+
+let flag = 0;
+//function start(){
+  const databRef = ref(db);
+  //console.log("In");
+get(child(databRef,"keyPoints/"+localStorage.getItem('id')))
+.then((snapshot)=>{
+  if(snapshot.exists() && snapshot.val().pose!=undefined){
+    snapshot.val().pose.forEach(child =>{
+    addItemToTable(child.name,child.type);
+    });
+  }
+  else{
+    document.getElementById('mess').innerHTML = "No activities found";
+  }
+})
+.catch((e)=>{
+  console.log(location.pathname);//.search.split("/")[1]);
+  if(location.pathname != "/exercise.html")
+  {
+    location.reload();
+  }
+  console.log(e);
+})
+//}
+//console.log("here");
+//window.onload = start();
+
+
+
 isnBtn.addEventListener('click',insertData);
 //showData.addEventListener('click',showwData);
 
@@ -147,6 +205,7 @@ function hideMain(){
 // function testData(){
 //   alert();
 // }
+
 
 
 
