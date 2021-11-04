@@ -29,6 +29,13 @@ let act = "";
 for(let i=0;i<myParam.length;i++){
   if(myParam[i]=='&'){
     while(myParam[i]!='$'&& myParam[i+1]!='#' && myParam[i+2]!='@'){
+      if(myParam[i]=='%')
+            {
+              act += ' ';
+              i++;
+              i++;
+              i++;
+            }
       act += myParam[i];
       i++;
     }
@@ -48,7 +55,8 @@ console.log(act.slice(5));
         //alert("Name "+snapshot.val().NameofStd+" roll no "+snapshot.val().RollNo);
         snapshot.val().pose.forEach(childSnapshot => {
           //console.log(childSnapshot);
-          if(childSnapshot.name.toLowerCase()==act.slice(5)){
+          alert(act.slice(5));
+          if(childSnapshot.name.toLowerCase()==act.slice(5).toLowerCase()){
             v = childSnapshot.keypoints;
             alert('keypoints received');
             console.log(v);
@@ -66,6 +74,7 @@ console.log(act.slice(5));
   })
   .catch((e)=>{
     //alert(e+'Firebase Error, Press OK to reload');
+    alert(e);
     location.reload();
   })
 }

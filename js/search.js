@@ -46,12 +46,16 @@ const dbRef = ref(db);
 get(child(dbRef,"keyPoints"))
 .then((snapshot)=>{
     snapshot.forEach(childSnapshot=>{
-        childSnapshot.val().pose.forEach(result=>{
-            if(result.type!=undefined && result.type.toLowerCase()==myParam){
+        //alert(childSnapshot.val().pose.type);
+        if(childSnapshot.val().pose!=undefined){
+            childSnapshot.val().pose.forEach(result=>{
+                alert(result.type);
+            if(result.type!=undefined && result.type.toLowerCase()==myParam.toLowerCase()){
                 flag = 1;
                 addItemToTable(result.name,result.type,childSnapshot.val().name,childSnapshot.ref._path.pieces_[1]);
             }
-        });
+            });
+        }
     });
     if(flag==0)
     {
@@ -59,5 +63,6 @@ get(child(dbRef,"keyPoints"))
     }
 })
 .catch((e)=>{
+    alert(e);
     location.reload();
 })

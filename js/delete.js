@@ -25,6 +25,13 @@ if(location.pathname=='/update.html'){
         }
         i++;
         while(i<url.length){
+            if(url[i]=='%')
+            {
+              actname += ' ';
+              i++;
+              i++;
+              i++;
+            }
             actname += url[i];
             i++;
             //break;
@@ -57,7 +64,6 @@ if(location.pathname=='/update.html'){
       }
     const app = initializeApp(firebaseConfig);
     const db = getDatabase();
-
     const dbRef = ref(db);
   let pose =[];
   get(child(dbRef,"keyPoints/"+uid))
@@ -121,6 +127,13 @@ if (confirm('Are you sure you want to delete this activity?')) {
         }
         i++;
         while(i<url.length){
+          if(url[i]=='%')
+            {
+              actname += ' ';
+              i++;
+              i++;
+              i++;
+            }
             actname += url[i];
             i++;
             //break;
