@@ -48,8 +48,30 @@ if(location.pathname=='/update.html'){
   console.log(actname);
   console.log(uid);
 
+  var del = document.getElementById('del');
+  let str = "window.location='delete.html?type="+type+"&name="+actname+"'";
+  del.setAttribute('onclick',str);
   document.getElementById('name').value = actname;
-  document.getElementById('activity').value = type;
+  let index = -1;
+  if(type=='exercise'){
+    index = 1;
+  }
+  else if(type=='yoga'){
+    index = 2;
+  }
+  else if(type=='gym'){
+    index = 3;
+  }
+  else if(type=='dance'){
+    index = 4;
+  }
+  else if(type=='sports'){
+    index = 5;
+  }
+  else if(type=='posture'){
+    index = 6;
+  }
+  document.getElementById('activity').selectedIndex = index;
 
   var updat = document.getElementById('upd');
   updat.addEventListener('click',updatefunc);
@@ -71,7 +93,9 @@ if(location.pathname=='/update.html'){
     snapshot.val().pose.forEach(result=>{
         console.log(result);
         if(result.type.toLowerCase()==type && result.name.toLowerCase()==actname){
-            var posetype = document.getElementById('activity').value;
+            var posetype = document.getElementById('activity').options[document.getElementById('activity').selectedIndex].text;
+            //alert(posetype);
+            //location.reload();
             var posename = document.getElementById('name').value;
             pose.push({type: posetype,name:posename,keypoints:result.keypoints});
         }
