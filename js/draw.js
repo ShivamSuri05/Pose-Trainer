@@ -12,7 +12,7 @@ const firebaseConfig = {
 
   const app = initializeApp(firebaseConfig);
 
-  import {getDatabase,ref, get, set, child, update, remove} from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
+  import {getDatabase,ref, get, child} from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
 
 const db = getDatabase();
 let v = [];
@@ -74,7 +74,7 @@ console.log(act.slice(5));
   })
   .catch((e)=>{
     //alert(e+'Firebase Error, Press OK to reload');
-    alert(e);
+    //alert(e);
     location.reload();
   })
 }
