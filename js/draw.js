@@ -55,7 +55,7 @@ console.log(act.slice(5));
         //alert("Name "+snapshot.val().NameofStd+" roll no "+snapshot.val().RollNo);
         snapshot.val().pose.forEach(childSnapshot => {
           //console.log(childSnapshot);
-          alert(act.slice(5));
+          //alert(act.slice(5));
           if(childSnapshot.name.toLowerCase()==act.slice(5).toLowerCase()){
             v = childSnapshot.keypoints;
             alert('keypoints received');
@@ -91,8 +91,13 @@ const fpsControl = new FPS();
 let start = -1;
 function startModel()
 {
+  if(v.length>1)
+  {
+    entry = 0;
+  }
   console.log("Started");
   start = 1;
+  startm.innerHTML = "Restart";
   ll();
   return;
 }
@@ -242,11 +247,14 @@ startm.addEventListener('click',startModel);
 var stopm = document.getElementById("stopM");
 stopm.addEventListener('click',stopModel);
 
+var div = document.getElementById("div1");
+
 function compare(a,b){
   if(b==null)
   {
     console.log("finish");
     let msg = "Your avg acc is "+ (totalacc/sizeofv).toFixed(3) ;
+    sizeofv = 0;
     console.log(msg);
     stopModel();
     document.getElementById("C-score").innerHTML = msg;
@@ -263,6 +271,14 @@ function compare(a,b){
   //console.log(accuracy);
   totalacc += accuracy;
   document.getElementById("C-score").innerHTML = (accuracy).toFixed(3);
+  if(accuracy < 65)
+  {
+    div.style.display = "block";
+  }
+  else
+  {
+    div.style.display = "none";
+  }
 }
 
 function calDist(x1,y1,x2,y2){
@@ -270,7 +286,6 @@ function calDist(x1,y1,x2,y2){
   let result = Math.sqrt(ans);
   return result;
 }
-
 
 new ControlPanel(controlsElement5, {
       selfieMode: true,
