@@ -141,7 +141,7 @@ function onResultsPose(results) {
   //console.log(results.poseLandmarks[0]);
   //vector.push(results.poseLandmarks);
   canvasCtx5.drawImage(results.image, 0, 0, out5.width, out5.height);
-  canvasCtx6.drawImage(results.image, 0, 0, out6.width, out6.height);
+  //canvasCtx6.drawImage(results.image, 0, 0, out6.width, out6.height);
   drawConnectors(canvasCtx5, results.poseLandmarks, POSE_CONNECTIONS, {
         color: (data) => {
           const x0 = out5.width * data.from.x;
@@ -255,14 +255,22 @@ function compare(a,b){
     console.log("finish");
     let msg = "Your avg acc is "+ (totalacc/sizeofv).toFixed(3) ;
     sizeofv = 0;
+    totalacc = 0;
+    div.style.display = "none";
     console.log(msg);
     stopModel();
     document.getElementById("C-score").innerHTML = msg;
   }
   let sum = 0;
-  let threshold = 0.1;
+  let threshold = 0.065;
+  let AnoseX = a[0].x;
+  let AnoseY = a[0].y;
+  let BnoseX = b[0].x;
+  let BnoseY = b[0].y;
+  let distA = calDist(AnoseX,AnoseY,a[25].x,a[25].y);
+  let distB = calDist(BnoseX,BnoseY,b[25].x,b[25].y);
   for(let i=0;i<33;i++){
-    let dist = calDist(a[i].x,a[i].y,b[i].x,b[i].y);
+    let dist = calDist((a[i].x-AnoseX)*distB,(a[i].y-AnoseY)*distB,(b[i].x-BnoseX)*distA,(b[i].y-BnoseY)*distA);
     if(dist <= threshold && dist >= -threshold ){
       sum++;
     }
@@ -271,7 +279,7 @@ function compare(a,b){
   //console.log(accuracy);
   totalacc += accuracy;
   document.getElementById("C-score").innerHTML = (accuracy).toFixed(3);
-  if(accuracy < 65)
+  if(accuracy < 70)
   {
     div.style.display = "block";
   }
