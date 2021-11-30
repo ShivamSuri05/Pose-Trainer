@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	
+<head>	
 <meta charset="utf-8">
 <title>iLand Multipurpose Landing Page Template</title>
 <link rel="icon" href="images/favicon.png" type="image/png" sizes="16x16">
@@ -17,8 +16,9 @@
 <link rel="stylesheet" href="css/ionicons.min.css">
 <!-- Resource style -->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="css/new_style.css">
 </head>
-<body>
+<body style="height: 300px;">
 <div class="wrapper">
   <div class="container">
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -50,28 +50,29 @@
             <h1 class="wow fadeInUp" data-wow-delay="0.1s">HEALTH POWER HAPPINESS</h1>
             <p class="wow fadeInUp" data-wow-delay="0.2s" style="font-size: 24px;"> Human Pose Estimator and Trainer </p>
         </div>
-		<div id="logIn">
-			<h3>Login</h3>
-			<div >
-				<input type="email" id="loginemail">Username</input><br>
-				<input type="password" id="loginpass">Password</input><br>
-				<input type="submit" id="logIN" value="Login">Login</input>
-			</div>
-			<button onclick="showDiv();">New User? Sign Up</button>
+
+	<div id="logIn">
+		<h3>Login</h3>
+		<div >
+			<input type="email" id="loginemail" placeholder="Username"></input><br>
+			<input type="password" id="loginpass" placeholder="Password"></input><br>
+			<input type="submit" id="logIN" value="Login" class="button1">Login</input>
 		</div>
-		<div id="signUp">
-			<h3>Sign Up</h3>
-			<div>
-				<input id="fullname">Full Name</input><br>
-				<input type="number" id="phno">Contact Number</input><br>
-				<input type="email" id="mail">Email Id</input><br>
-				<input type="password" id="pass1">Password</input><br>
-				<input type="password" id="pass2">Confirm Password</input><br>
-				<input type="submit" id="signUP" value="Create">Create Account</input>
-			</div>
-			<button onclick="hideDiv();">Registered User? Log In</button>
+		<button onclick="showDiv();" class="button2">New User? Sign Up</button>
+	</div>
+	<div id="signUp">
+		<h3>Sign Up</h3>
+		<div>
+			<input id="fullname" placeholder="Full Name"></input><br>
+			<input type="number" id="phno" placeholder="Contact Number"></input><br>
+			<input type="email" id="mail" placeholder="Email Id"></input><br>
+			<input type="password" id="pass1" placeholder="Password"></input><br>
+			<input type="password" id="pass2" placeholder="Confirm Password"></input><br>
+			<input type="submit" id="signUP" value="Create" class="button1"></input>
 		</div>
-      </div>
+		<button onclick="hideDiv();" class="button2">Registered User? Log In</button>
+	</div>
+    </div>
     </div>
     
 
@@ -156,36 +157,35 @@
    
     <!-- Footer Section -->
     <div class="footer" id="contact">
-      <div class="container">
-        <div class="col-md-6 contact">
-          <h1>About Us</h1>
-          <p>A correct posture is of utmost importance while doing any kind of workout as it not only
-           prevents accidental injury but also increases the output of the workout.</p>
-          <p>Our system is your one stop solution for learning/teaching Sports, Yoga, Dance, GYM exercises
-          and improving posture while performing day to day activities.</p>
-        </div>
-        <div class="col-md-3 contact footer-menu">
-          <h1>Social</h1>
-          <ul>
-            <li><a href="#">Telegram</a></li>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Instagram</a></li>
-          </ul>
-        </div>
-        <div class="col-md-3 contact">
-          <h1>Contact Us</h1>
-          <p> Contact our 24/7 customer support if you have any questions. We'll help you out. </p>
-          <a href="mailto:support@gmail.com">contact@gmail.com</a> </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Scroll To Top --> 
-  
-  <a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a> 
-  
-  <!-- Scroll To Top Ends--> 
-  
+		<div class="container">
+		  <div class="col-md-6 contact">
+			<h1>About Us</h1>
+			<p>A correct posture is of utmost importance while doing any kind of workout as it not only
+			 prevents accidental injury but also increases the output of the workout.</p>
+			<p>Our system is your one stop solution for learning/teaching Sports, Yoga, Dance, GYM exercises
+			and improving posture while performing day to day activities.</p>
+		  </div>
+		  <div class="col-md-3 contact footer-menu">
+			<h1>Social</h1>
+			<ul>
+			  <li><a href="#">Facebook</a></li>
+			  <li><a href="#">Twitter</a></li>
+			  <li><a href="#">Instagram</a></li>
+			</ul>
+		  </div>
+		  <div class="col-md-3 contact">
+			<h1>Contact Us</h1>
+			<p> Contact our 24/7 customer support if you have any questions. We'll help you out. </p>
+			<a href="mailto:support@gmail.com">contact@gmail.com</a> </div>
+		</div>
+	  </div>
+	</div>
+	
+	<!-- Scroll To Top --> 
+	
+	<a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a> 
+	
+	<!-- Scroll To Top Ends--> 
 </div>
 <!-- Main Section -->
 </div>

@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>testing</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/new_style.css">
     <script type="module" src="js/firebase.js"></script>
     <script> 
         function logOut(){
@@ -15,24 +16,67 @@
     </script>
     <style>
         .clickable:hover{
-            background-color: red;
+            background-color: rgb(193, 223, 143);
         }
+        body{
+	background:url(../images/header-bg.jpg);
+	background-size: cover;
+}
+.table td:nth-child(3) button{
+
+background-color: #00aeda;
+color: white;
+padding: 10px;
+font-size: 14px;
+border: none;
+
+}
+
+.table td:nth-child(3) button:hover{
+
+background-color: #04AA6D;
+color: white;
+padding: 10px;
+font-size: 14px;
+border: none;
+}
+
+.table td:nth-child(4) button{
+
+background-color: #00aeda;
+color: white;
+padding: 10px;
+font-size: 14px;
+border: none;
+
+}
+
+.table td:nth-child(4) button:hover{
+
+background-color: rgb(223, 72, 72);
+color: white;
+padding: 10px;
+font-size: 14px;
+border: none;
+
+}
     </style>
 </head>
 <body>
     <h3 id="getname"></h3>
-    <input type="submit" value="Log Out" id="logout" onclick="logOut();"></input>
-    <a href="exercise.html">Add</a>
+    <input type="submit" value="Log Out" id="logout" onclick="logOut();" class="bla4"></input>
+    <!--<a href="exercise.html" class="bla">Add</a>-->
     <div class="container mt-3">
-        <h2 class="text-center">Your Activities</h2>
-        <table class="table ">
-            <thead>
+        <h2 class="text-center" style="font-size: 25px; color: white; margin-top: 70px; display: inline-block; margin-left: 40%;">Your Activities</h2>
+        <a href="exercise.html" class="bla5">+</a>
+        <table class="table " style="background-color: rgb(122, 163, 84); color: black; margin-top: 40px;">
+            <thead style="font-size: 18px; background-color: #0e5b9b; color: white;">
                 <th class="text-center">Activity Name</th>
                 <th class="text-center">Activity Type</th>
                 <th class="text-center">Update</th>
                 <th class="text-center">Delete</th>
             </thead>
-            <tbody id="tbody1"></tbody>
+            <tbody id="tbody1" style="font-size: 14px;"></tbody>
         </table>
         <p id="mess"></p>
     </div>

@@ -6,24 +6,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search</title>
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
+    <link rel="stylesheet" href="css/new_style.css">
     <script type="module" src="js/search.js"></script>
     <style>
         .clickable:hover{
-            background-color: red;
             cursor: pointer;
+            background-color: rgb(193, 223, 143);
         }
+        body{
+	background:url(../images/header-bg.jpg);
+	background-size: cover;
+}
+
+
     </style>
 </head>
 <body>
-    <a href="user1.html">Back</a>
+    <a href="user1.html" class="bla4" style="text-decoration: none;">Back</a>
     <div class="container mt-3">
-        <table class="table">
-            <thead>
+        <table class="table" style="background-color: rgb(122, 163, 84); color: black; margin-top: 100px;">
+            <thead style="font-size: 18px; background-color: #0e5b9b; color: white;">
                 <th>Activity Name</th>
                 <th>Activity Type</th>
                 <th>Trainer Name</th>
             </thead>
-            <tbody id="tbody1"></tbody>
+            <tbody id="tbody1" style="font-size: 14px;"></tbody>
         </table>
         <h4 id="msg"></h4>
     </div>

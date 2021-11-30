@@ -1,0 +1,204 @@
+#logIn{
+    margin-left: 37%;
+    margin-top: 2px;
+    margin-bottom: 200px;
+    font-size: 24px;
+}
+
+#signUp{
+    margin-left: 37%;
+    margin-top: 2px;
+    margin-bottom: 200px;
+    font-size: 24px;
+}
+
+.button1{
+    color: black;
+    margin-top: 3px;
+}
+
+.button1:hover{
+   background-color: #00aeda;
+   color: white;
+   border-color: #00aeda;
+}
+
+.button2{
+    color: black;
+    margin-top: 5px;
+}
+
+.button2:hover{
+    background-color: #00aeda;
+    color: white;
+    border-color: #00aeda;
+ }
+
+.footer{
+    margin-bottom: 0px;
+    position: absolute;
+    padding-top: 50px;
+    padding-bottom: 0px;
+}
+
+
+.drop{
+  color: black;
+  padding: 10px;
+  font-size: 16px;
+
+}
+
+.bla{
+
+  background-color: #00aeda;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+
+}
+
+.bla:hover{
+
+  background-color: #04AA6D;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+
+}
+
+.bla2{
+
+    background-color: #00aeda;
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+  
+  }
+  
+  .bla2:hover{
+  
+    background-color: rgb(223, 72, 72);
+    color: white;
+    padding: 10px;
+    font-size: 16px;
+    border: none;
+  
+  }
+
+#updating{
+    position: absolute;
+    top: 28%;
+    left: 31%;
+}
+
+.bla3{
+
+  background-color: #00aeda;
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+
+}
+
+.bla3:hover{
+
+  background-color: rgb(144, 105, 218);
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+
+}
+
+.deco{
+
+  background-color: #00aeda;
+  color: white;
+  padding: 10px;
+  margin-top: 25px;
+  font-size: 23px;
+  border: none;
+
+}
+
+.deco:hover{
+
+  background-color: rgb(223, 72, 72);
+  color: white;
+  padding: 10px;
+  margin-top: 25px;
+  font-size: 23px;
+  border: none;
+
+}
+
+#getname{
+  position: absolute;
+  top: -55px;
+  left: 70px;
+  color: white;
+  font-size: 25px;
+}
+
+.activi{
+  position: absolute;
+  top: 5px;
+  left: 36%;
+}
+
+.act{
+  background-color: #00aeda;
+  height: 45px;
+  padding-top: 4px;
+}
+
+.bla4{
+
+  background-color: rgb(223, 72, 72);
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  position: absolute;
+  right: 0px;
+
+}
+
+.bla4:hover{
+
+  background-color: rgb(158, 30, 30);
+  color: white;
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  position: absolute;
+  right: 0px;
+
+}
+
+.bla5{
+
+  background-color: #00aeda;
+  color: white;
+  padding: 5px 10px;
+  font-size: 20px;
+  border: none;
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+.bla5:hover{
+
+  background-color: #0e5b9b;
+  color: white;
+  padding: 5px 10px;
+  font-size: 20px;
+  border: none;
+  text-decoration: none;
+  margin-left: 10px;
+}
