@@ -132,6 +132,8 @@ function insertData(){
 
 
 var tbody = document.getElementById('tbody1');
+var spin = document.getElementsByClassName('lds-roller')[0];
+var spinbody = document.getElementsByClassName('parent-block')[0];
 function addItemToTable(name,type){
   let trow = document.createElement("tr");
   let td1 = document.createElement("td");
@@ -165,6 +167,8 @@ let flag = 0;
   //console.log("In");
 get(child(databRef,"keyPoints/"+localStorage.getItem('id')))
 .then((snapshot)=>{
+  spin.style.display = "none";
+  spinbody.style.display = "none";
   if(snapshot.exists() && snapshot.val().pose!=undefined){
     snapshot.val().pose.forEach(child =>{
     addItemToTable(child.name,child.type);
