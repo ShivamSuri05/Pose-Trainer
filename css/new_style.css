@@ -17,6 +17,12 @@
     margin-top: 3px;
 }
 
+#mess{
+  background-color: white;
+  text-align: center;
+  font-size: 20px;
+}
+
 .button1:hover{
    background-color: #00aeda;
    color: white;
@@ -137,13 +143,6 @@
 
 }
 
-#getname{
-  position: absolute;
-  top: -55px;
-  left: 70px;
-  color: white;
-  font-size: 25px;
-}
 
 .activi{
   position: absolute;

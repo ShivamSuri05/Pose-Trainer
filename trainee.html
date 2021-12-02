@@ -134,7 +134,7 @@ color:white;
 
 
 
-	<div class="matching" style="height: 38px;"><span style="font-size:28px; text-align:left; padding:6px 8px; margin-bottom:2px;">Accuracy :</span>
+	<div class="matching" style="height: 58px;"><span style="font-size:28px; text-align:left; padding:6px 8px; margin-bottom:2px;">Accuracy :</span>
   <span id="C-score"></span>
   </div>
   <button onclick="startModel();" id="startM" class="bla" style="margin-top: 15px; font-size: 23px; margin-right: 5px;">Start</button>
@@ -181,7 +181,7 @@ color:white;
           <canvas id="myvideo2" class="output6" width="480px" height="480px"></canvas>
         </div>
       </article>
-      <button onclick="openFullscreen1();" class="bla3" style="margin-top: 5px;">Open Video in Fullscreen Mode1</button>
+      <button onclick="openFullscreen();" class="bla3" style="margin-top: 5px;">Open Video in Fullscreen Mode1</button>
     </div>
   </div>
 
@@ -193,7 +193,7 @@ color:white;
   
   <script type="module" src="js/draw.js"></script>
   <script>
-    var elem = document.getElementById("myvideo");
+    var elem = document.getElementById("myvideo2");
     function openFullscreen() {
       if (elem.requestFullscreen) {
         elem.requestFullscreen();

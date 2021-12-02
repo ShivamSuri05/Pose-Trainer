@@ -155,7 +155,7 @@ function addItemToTable(name,type){
   trow.appendChild(td2);
   trow.appendChild(td5);
   trow.appendChild(td6);
-  trow.setAttribute('class',"clickable text-center");
+  trow.setAttribute('class',"clickable text-center centre");
   tbody.appendChild(trow);
 }
 
@@ -171,7 +171,7 @@ get(child(databRef,"keyPoints/"+localStorage.getItem('id')))
     });
   }
   else{
-    document.getElementById('mess').innerHTML = "No activities found";
+    document.getElementById('mess').innerHTML = "No Activities Found";
   }
 })
 .catch((e)=>{

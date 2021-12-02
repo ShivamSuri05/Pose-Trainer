@@ -27,7 +27,7 @@ document.getElementById('signUP').addEventListener('click', function(){
     .then((userCredential) => {
     // Signed in 
       const user = userCredential.user;
-      alert("user created "+fname.value+pno.value+user.email+user.uid);
+      //alert("user created "+fname.value+pno.value+user.email+user.uid);
       set(ref(db,"Users/"+user.uid),{
         name: fname.value,
         contact: pno.value,
@@ -35,12 +35,12 @@ document.getElementById('signUP').addEventListener('click', function(){
         poses: []
     })
     .then(()=>{
-      alert("data stored successfully");
+      alert("Signing Up Successful");
       localStorage.setItem("id",user.uid);
       window.location.href = 'test.html';
     })
     .catch((error) => {
-      alert("error occured"+ error);
+      alert("error occured "+ error);
     });
     // ...
     })
@@ -63,7 +63,7 @@ document.getElementById('logIN').addEventListener('click', function(){
     .then((userCredential) => {
     // Signed in 
       const user = userCredential.user;
-      alert("user log in "+user.uid);
+      alert("Logged In Successfully");
       localStorage.setItem("id",user.uid);
       window.location.href = 'test.html';
     // ...
@@ -78,61 +78,3 @@ document.getElementById('logIN').addEventListener('click', function(){
 
 })
 
-
-
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-
-// import {getDatabase,ref, get, set, child, update, remove} from "https://www.gstatic.com/firebasejs/9.1.3/firebase-database.js";
-
-// const db = getDatabase();
-/*
-var isnBtn = document.getElementById("isnbtn");
-var showData = document.getElementById("show");
-function insertData(){
-  set(ref(db,"keyPoints/"+1),{
-        name: "Shivam",
-        pose: [{name:"dance",keypoints:vector}]
-  })
-  .then(()=>{
-    alert("data stored successfully");
-  })
-  .catch((error) => {
-    alert("error occured"+ error);
-  });
-}
-
-function showwData(){
-  const dbref = ref(db);
-
-  get(child(dbref,"TheStudents/"+2)).then((snapshot)=>{
-    if(snapshot.exists())
-    {
-        //alert("Name "+snapshot.val().NameofStd+" roll no "+snapshot.val().RollNo);
-        alert("test"+snapshot.val().data[0][0].x);
-    }
-    else
-    {
-      alert("No Data Found");
-    }
-  })
-}
-
-isnBtn.addEventListener('click',insertData);
-showData.addEventListener('click',showwData);
-*/
-//firebase.initializeApp(firebaseConfig);
-// const app = initializeApp(firebaseConfig);
-// // import {auth} from "https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js";
-// const auth = firebase.auth();
-
-// function SignUp(){
-//     var fname = document.getElementById('fullname');
-//     var pno = document.getElementById('phno');
-//     var email = document.getElementById('mail');
-//     var pass = document.getElementById('pass1');
-
-//     const promise = auth.createWithEmailAndPassword(email.value, pass.value);
-//     promise.catch(e => alert(e.message));
-//     alert("Signed Up");
-// }

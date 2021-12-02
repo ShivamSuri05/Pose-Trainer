@@ -16,7 +16,8 @@
     </script>
     <style>
         .clickable:hover{
-            background-color: rgb(193, 223, 143);
+            /*background-color: rgb(193, 223, 143);*/
+            background-color: #00aeda;
         }
         body{
 	background:url(../images/header-bg.jpg);
@@ -60,17 +61,34 @@ font-size: 14px;
 border: none;
 
 }
+.table>tbody>tr>td{
+    vertical-align: middle;
+    font-size: 17px;
+}
+.table>tbody>tr{
+    border-bottom: black 2px solid;
+    border-top: black 3px solid;
+}
+#getname{
+    position: absolute;
+    top: -20px;
+    left: 0px;
+    color: white;
+    font-size: 21px;
+    background-color: #DF4848;
+    padding: 10px;
+}
     </style>
 </head>
 <body>
-    <h3 id="getname"></h3>
+    <h3 id="getname">Hello</h3>
     <input type="submit" value="Log Out" id="logout" onclick="logOut();" class="bla4"></input>
     <!--<a href="exercise.html" class="bla">Add</a>-->
     <div class="container mt-3">
         <h2 class="text-center" style="font-size: 25px; color: white; margin-top: 70px; display: inline-block; margin-left: 40%;">Your Activities</h2>
-        <a href="exercise.html" class="bla5">+</a>
-        <table class="table " style="background-color: rgb(122, 163, 84); color: black; margin-top: 40px;">
-            <thead style="font-size: 18px; background-color: #0e5b9b; color: white;">
+        <a href="exercise.html" class="bla5" title="Add">+</a>
+        <table class="table " style="background-color: rgb(208, 220, 220); color: black; margin-top: 40px;">
+            <thead style="font-size: 18px; background-color: #0e5b9b; color: white; height: 50px; vertical-align: middle;">
                 <th class="text-center">Activity Name</th>
                 <th class="text-center">Activity Type</th>
                 <th class="text-center">Update</th>
