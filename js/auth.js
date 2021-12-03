@@ -37,7 +37,7 @@ document.getElementById('signUP').addEventListener('click', function(){
     .then(()=>{
       alert("Signing Up Successful");
       localStorage.setItem("id",user.uid);
-      window.location.href = 'test.html';
+      window.location.href = 'activities.html';
     })
     .catch((error) => {
       alert("error occured "+ error);
@@ -65,7 +65,7 @@ document.getElementById('logIN').addEventListener('click', function(){
       const user = userCredential.user;
       alert("Logged In Successfully");
       localStorage.setItem("id",user.uid);
-      window.location.href = 'test.html';
+      window.location.href = 'activities.html';
     // ...
     })
     .catch((error) => {

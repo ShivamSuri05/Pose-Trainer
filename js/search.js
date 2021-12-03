@@ -2,7 +2,7 @@ var myParam = location.search.split('type=')[1];
 if(myParam=='')
 {
     alert('Invalid');
-    window.location.href = "user1.html";
+    window.location.href = "user.html";
 }
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
 const firebaseConfig = {

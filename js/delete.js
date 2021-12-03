@@ -82,7 +82,7 @@ if(location.pathname=='/update.html'){
         console.log('Yes');
       } else {
         // Do nothing!
-        window.location.href = "test.html";
+        window.location.href = "activities.html";
       }
     const app = initializeApp(firebaseConfig);
     const db = getDatabase();
@@ -112,7 +112,7 @@ if(location.pathname=='/update.html'){
       })
       .then(()=>{
         alert("data Updated successfully");
-        window.location.href = "test.html";
+        window.location.href = "activities.html";
       })
       .catch((error) => {
         alert("error occured"+ error);
@@ -131,7 +131,7 @@ if (confirm('Are you sure you want to delete this activity?')) {
     console.log('Yes');
   } else {
     // Do nothing!
-    window.location.href = "test.html";
+    window.location.href = "activities.html";
   }
 
 
@@ -196,7 +196,7 @@ if (confirm('Are you sure you want to delete this activity?')) {
         remove(ref(db,"keyPoints/"+uid))
         .then(()=>{
             alert("Data deleted successfully");
-            window.location.href = "test.html";
+            window.location.href = "activities.html";
         })
         .catch(()=>{
             console.log(e);
@@ -209,7 +209,7 @@ if (confirm('Are you sure you want to delete this activity?')) {
       })
       .then(()=>{
         alert("data deleted successfully");
-        window.location.href = "test.html";
+        window.location.href = "activities.html";
       })
       .catch((error) => {
         alert("error occured"+ error);
