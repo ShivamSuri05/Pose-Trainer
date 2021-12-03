@@ -75,7 +75,7 @@ function insertData(){
   }
   else{
     var act = document.getElementById('actName').value;
-    alert(act);
+    //alert(act);
     //getData();
     const dbref = ref(db);
 

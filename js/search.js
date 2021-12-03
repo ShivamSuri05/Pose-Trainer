@@ -43,13 +43,17 @@ function addItemToTable(act,type,name,uid){
 
 let flag = 0;
 const dbRef = ref(db);
+var spin = document.getElementsByClassName('lds-roller')[0];
+var spinbody = document.getElementsByClassName('parent-block')[0];
 get(child(dbRef,"keyPoints"))
 .then((snapshot)=>{
+    spin.style.display = "none";
+    spinbody.style.display = "none";
     snapshot.forEach(childSnapshot=>{
         //alert(childSnapshot.val().pose.type);
         if(childSnapshot.val().pose!=undefined){
             childSnapshot.val().pose.forEach(result=>{
-                alert(result.type);
+                //alert(result.type);
             if(result.type!=undefined && result.type.toLowerCase()==myParam.toLowerCase()){
                 flag = 1;
                 addItemToTable(result.name,result.type,childSnapshot.val().name,childSnapshot.ref._path.pieces_[1]);
@@ -59,10 +63,11 @@ get(child(dbRef,"keyPoints"))
     });
     if(flag==0)
     {
+        document.getElementById('msg').style.display = "block";
         document.getElementById('msg').innerHTML = "No records found for your searched type";
     }
 })
 .catch((e)=>{
-    alert(e);
+    //alert(e);
     location.reload();
 })

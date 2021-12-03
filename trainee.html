@@ -99,11 +99,17 @@ color:white;
 .dropdown:hover .dropdown-content {display: block;}
 
 .dropdown:hover .dropbtn {background-color: #3e8e41;}
+.lds-roller div:after{
+  background: black;
+}
 
 </style>
 </head>
-<body>
+<body id="bod" style="overflow: hidden; overflow-anchor: none;">
 <div class="wrapper">
+  <div class="parent-block"><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+  <p style="position: absolute; left: 575px; top: 210px; color: white;">Fetching Points Please Wait. . .</p>
+</div>
   <div class="container">
     <nav class="navbar navbar-default navbar-fixed-top">
       <div class="container"> 
@@ -114,7 +120,7 @@ color:white;
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a href="user1.html">Back</a></li>
+            <li><a href="user1.html" style="z-index: 10;">Back</a></li>
           </ul>
         </div>
       </div>
@@ -134,11 +140,12 @@ color:white;
 
 
 
-	<div class="matching" style="height: 58px;"><span style="font-size:28px; text-align:left; padding:6px 8px; margin-bottom:2px;">Accuracy :</span>
+	<div class="matching" style="height: 58px;"><button onclick="startModel();" id="startM" class="bla" style="margin-top: 15px; font-size: 23px; margin-right: 5px;left: 250px;position: absolute;">Start</button>
+    <button onclick="stopModel();" id="stopM" class="bla2" style="margin-top: 15px; font-size: 23px; position: absolute;right: 280px;">Stop</button>
+    <span style="font-size:28px; text-align:left; padding:6px 8px; margin-bottom:2px;">Accuracy :</span>
   <span id="C-score"></span>
   </div>
-  <button onclick="startModel();" id="startM" class="bla" style="margin-top: 15px; font-size: 23px; margin-right: 5px;">Start</button>
-  <button onclick="stopModel();" id="stopM" class="bla2" style="margin-top: 15px; font-size: 23px;">Stop</button>
+  
 
   <div id="div1">
     <img src="img/icons/cross.png"> 
@@ -163,7 +170,7 @@ color:white;
     <div class="column user">
       <article class="panel is-info">
         <p style="color:black; font-size: 20px;">
-          Mediapipe Pose Detection
+          Realtime Pose Detection
         </p>
         <div  class="panel-block">
           <canvas id="myvideo1" class="output5" width="480px" height="480px"></canvas>
@@ -188,7 +195,7 @@ color:white;
   <div class="loading">
     <div class="spinner"></div>
   </div>
-  <div style="visibility: hidden;" class="control5">
+  <div style="display: none;" class="control5">
   </div>
   
   <script type="module" src="js/draw.js"></script>
@@ -230,7 +237,8 @@ color:white;
 </div>
 <!-- Main Section -->
 </div>
-<!-- Wrapper--> 
+<!-- Wrapper-->
+</div> 
 
 <!-- Jquery and Js Plugins --> 
 <script type="text/javascript" src="js/jquery-2.1.1.js"></script> 

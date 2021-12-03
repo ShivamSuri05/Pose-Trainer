@@ -19,6 +19,9 @@ let v = [];
 let sizeofv=0;
 let totalacc=0;
 
+var spin = document.getElementsByClassName('lds-roller')[0];
+var spinbody = document.getElementsByClassName('parent-block')[0];
+
 
 
 function showwData(){
@@ -50,6 +53,9 @@ console.log(act.slice(5));
 
   get(child(dbref,"keyPoints/"+uid))
   .then((snapshot)=>{
+    spin.style.display = "none";
+    spinbody.style.display = "none";
+    document.getElementById('bod').style.overflow = "visible";
     if(snapshot.exists())
     {
         //alert("Name "+snapshot.val().NameofStd+" roll no "+snapshot.val().RollNo);
@@ -58,7 +64,7 @@ console.log(act.slice(5));
           //alert(act.slice(5));
           if(childSnapshot.name.toLowerCase()==act.slice(5).toLowerCase()){
             v = childSnapshot.keypoints;
-            alert('keypoints received');
+            alert('Points fetched successfully');
             //console.log(v);
               const out5 = document.getElementsByClassName('output5')[0];
     const canvasCtx5 = out5.getContext('2d');
