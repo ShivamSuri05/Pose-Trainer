@@ -106,7 +106,7 @@ function insertData(){
     })
     .then(()=>{
       alert("data stored successfully");
-      window.location.href = "test.html";
+      window.location.href = "activities.html";
     })
     .catch((error) => {
       alert("error occured"+ error);
