@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>	
 <meta charset="utf-8">
-<title>StayFit</title>
+<title>StayFit | Instructor</title>
 <link rel="icon" href="img/pic/stayfit.jpeg" type="image/jpeg" sizes="16x16">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="iLand Multipurpose Landing Page Template">
@@ -16,8 +16,9 @@
 <link rel="stylesheet" href="css/ionicons.min.css">
 <!-- Resource style -->
 <link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
+<link rel="stylesheet" href="css/new_style.css">
 </head>
-<body>
+<body style="height: 300px;">
 <div class="wrapper">
   <div class="container">
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -29,8 +30,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-            <li><a class="page-scroll" href="#main">Home</a></li>
+            <li><a class="page-scroll" href="index.html">Home</a></li>
+            <!-- <li><a class="page-scroll" href="#services">Services</a></li> -->
             <li><a class="page-scroll" href="#contact">Contact</a></li>
+            <li><a href="#" onclick="showDiv();">Sign Up</a></li>
           </ul>
         </div>
       </div>
@@ -46,44 +49,60 @@
           <div class="hero-content text-center">
             <h1 class="wow fadeInUp" data-wow-delay="0.1s">HEALTH POWER HAPPINESS</h1>
             <p class="wow fadeInUp" data-wow-delay="0.2s" style="font-size: 24px;"> Human Pose Estimator and Trainer </p>
-			<p class="wow fadeInUp" data-wow-delay="0.2s" style="font-size: 24px;"> Tell us who you are? </p>
-            <a href="user1.html" class="btn btn-action wow fadeInUp page-scroll" style="visibility: visible; animation-name: fadeInUp; width: 200px;">Learner</a> 
-			<a href="trainer.html" class="btn btn-action wow fadeInUp page-scroll" style="visibility: visible; animation-name: fadeInUp; width: 200px;">Instructor</a> 
-		</div>
         </div>
-      </div>
+
+	<div id="logIn">
+		<h3>Login</h3>
+		<div >
+			<input type="email" id="loginemail" placeholder="Username"></input><br>
+			<input type="password" id="loginpass" placeholder="Password"></input><br>
+			<input type="submit" id="logIN" value="Login" class="button1">Login</input>
+		</div>
+		<button onclick="showDiv();" class="button2">New User? Sign Up</button>
+	</div>
+	<div id="signUp">
+		<h3>Sign Up</h3>
+		<div>
+			<input id="fullname" placeholder="Full Name"></input><br>
+			<input type="number" id="phno" placeholder="Contact Number"></input><br>
+			<input type="email" id="mail" placeholder="Email Id"></input><br>
+			<input type="password" id="pass1" placeholder="Password"></input><br>
+			<input type="password" id="pass2" placeholder="Confirm Password"></input><br>
+			<input type="submit" id="signUP" value="Create" class="button1"></input>
+		</div>
+		<button onclick="hideDiv();" class="button2">Registered User? Log In</button>
+	</div>
+    </div>
     </div>
     
 
 <!-- NEWWWWWWWWWWWWWw -->
    
     <!-- Footer Section -->
-    <div class="footer" id="contact">
-      <div class="container">
-        <div class="col-md-6 contact">
-          <h1>About Us</h1>
-          <p>A correct posture is of utmost importance while doing any kind of workout as it not only
-           prevents accidental injury but also increases the output of the workout.</p>
-          <p>Our system is your one stop solution for learning/teaching Sports, Yoga, Dance, GYM exercises
-          and improving posture while performing day to day activities.</p>
-        </div>
-        <div class="col-md-3 contact">
-          <h1>Contact Us</h1>
-          <p> Contact our 24/7 customer support if you have any questions. We'll help you out. </p>
-          <a href="mailto:stayfit@gmail.com">stayfit@gmail.com</a> </div>
-		  <div class="col-md-2 contact" style="position: absolute; right: 20px;">
-			<img src="img/pic/stayfit.jpeg"> 
+    <div class="footer" id="contact" style="height: 230px;">
+		<div class="container">
+		  <div class="col-md-6 contact">
+			<h1>About Us</h1>
+			<p>A correct posture is of utmost importance while doing any kind of workout as it not only
+			 prevents accidental injury but also increases the output of the workout.</p>
+			<p>Our system is your one stop solution for learning/teaching Sports, Yoga, Dance, GYM exercises
+			and improving posture while performing day to day activities.</p>
+		  </div>
+		  <div class="col-md-3 contact">
+			<h1>Contact Us</h1>
+			<p> Contact our 24/7 customer support if you have any questions. We'll help you out. </p>
+			<a href="mailto:stayfit@gmail.com">stayfit@gmail.com</a> </div>
+            <div class="col-md-2 contact" style="position: absolute; right: 20px;">
+                <img src="img/pic/stayfit.jpeg"> 
+            </div>
 		</div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- Scroll To Top --> 
-  
-  <a id="back-top" class="back-to-top page-scroll" href="#main"> <i class="ion-ios-arrow-thin-up"></i> </a> 
-  
-  <!-- Scroll To Top Ends--> 
-  
+	  </div>
+	</div>
+	
+	<!-- Scroll To Top --> 
+	
+	
+	<!-- Scroll To Top Ends--> 
 </div>
 <!-- Main Section -->
 </div>
@@ -96,5 +115,8 @@
 <script type="text/javascript" src="js/menu.js"></script> 
 <script type="text/javascript" src="js/custom.js"></script> 
 <script src="js/jquery.subscribe.js"></script>
+<script type="module" src="js/auth.js"></script>
 </body>
 </html>
+
+

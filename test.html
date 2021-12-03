@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>testing</title>
+    <title>StayFit | Activities</title>
+    <link rel="icon" href="img/pic/stayfit.jpeg" type="image/jpeg" sizes="16x16">
     <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" media="all" />
     <link rel="stylesheet" href="css/new_style.css">
     <script type="module" src="js/firebase.js"></script>
     <script> 
         function logOut(){
             localStorage.clear();
-            window.location.href = "index.html";
+            window.location.href = "trainer.html";
         }
     </script>
     <style>
@@ -83,7 +84,7 @@ border: none;
 <body>
     <div class="parent-block"><div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div></div>
     <h3 id="getname">Hello</h3>
-    <input type="submit" value="Log Out" id="logout" onclick="logOut();" class="bla4"></input>
+    <input type="submit" value="Log Out" id="logout" onclick="logOut();" class="bla4" style="z-index: 10;"></input>
     <!--<a href="exercise.html" class="bla">Add</a>-->
     <div class="container mt-3">
         <h2 class="text-center" style="font-size: 25px; color: white; margin-top: 70px; display: inline-block; margin-left: 40%;">Your Activities</h2>
