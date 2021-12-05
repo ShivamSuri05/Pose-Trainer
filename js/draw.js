@@ -111,7 +111,7 @@ console.log(act.slice(5));
       else if(start==1)
       {
         document.body.classList.add('loaded');
-        //fpsControl.tick();
+        fpsControl.tick();
     
       canvasCtx5.save();
       canvasCtx5.clearRect(0, 0, out5.width, out5.height);
@@ -279,7 +279,7 @@ console.log(act.slice(5));
           minDetectionConfidence: 0.5,
           minTrackingConfidence: 0.5
         })
-        /*.add([
+        .add([
           new StaticText({title: 'MediaPipe Pose'}),
           fpsControl,
           new Toggle({title: 'Selfie Mode', field: 'selfieMode'}),
@@ -297,7 +297,7 @@ console.log(act.slice(5));
             range: [0, 1],
             step: 0.01
           }),
-        ])*/
+        ])
         .on(options => {
           video5.classList.toggle('selfie', options.selfieMode);
           pose.setOptions(options);
